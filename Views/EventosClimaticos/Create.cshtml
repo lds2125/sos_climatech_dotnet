@@ -1,0 +1,45 @@
+@model GsDotNet.DTOs.EventoClimaticoDTO
+@{
+    ViewData["Title"] = "Registrar Novo Evento";
+}
+<h1>Registrar Novo Evento Climático</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Tipo" class="control-label"></label>
+                <input asp-for="Tipo" class="form-control" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Descricao" class="control-label"></label>
+                <textarea asp-for="Descricao" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DataOcorrencia" class="control-label"></label>
+                <input asp-for="DataOcorrencia" class="form-control" type="datetime-local" />
+                <span asp-validation-for="DataOcorrencia" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Local" class="control-label"></label>
+                <input asp-for="Local" class="form-control" />
+                <span asp-validation-for="Local" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Severidade" class="control-label"></label>
+                <input asp-for="Severidade" class="form-control" type="number" min="1" max="5" />
+                <span asp-validation-for="Severidade" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Registrar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

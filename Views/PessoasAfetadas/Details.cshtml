@@ -1,0 +1,63 @@
+@model GsDotNet.DTOs.PessoaAfetadaDTO
+@{
+    ViewData["Title"] = "Detalhes da Pessoa Afetada";
+}
+<h1>Detalhes da Pessoa Afetada</h1>
+<div>
+    <h4>Pessoa Afetada</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.TipoAfetacao)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.TipoAfetacao)
+        </dd>
+        <dt class = "col-sm-3">
+            Evento Climático Relacionado
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.NomeEvento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary">Voltar para Lista</a>
+</div>

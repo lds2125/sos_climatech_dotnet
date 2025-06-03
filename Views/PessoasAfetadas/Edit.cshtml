@@ -1,0 +1,63 @@
+@model GsDotNet.DTOs.PessoaAfetadaDTO
+@{
+    ViewData["Title"] = "Editar Pessoa Afetada";
+}
+<h1>Editar Pessoa Afetada</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mb-3">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CPF" class="control-label"></label>
+                <input asp-for="CPF" class="form-control" readonly /> <!-- CPF não deve ser editável -->
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" type="date" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Endereco" class="control-label"></label>
+                <input asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="TipoAfetacao" class="control-label"></label>
+                <input asp-for="TipoAfetacao" class="form-control" />
+                <span asp-validation-for="TipoAfetacao" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EventoClimaticoId" class="control-label">Evento Climático</label>
+                <select asp-for="EventoClimaticoId" class="form-control" asp-items="ViewBag.EventoClimaticoId">
+                     <option value="">-- Selecione um Evento --</option>
+                </select>
+                <span asp-validation-for="EventoClimaticoId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Salvar Alterações" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
